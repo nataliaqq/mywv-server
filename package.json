@@ -1,0 +1,24 @@
+{
+  "name": "mywv-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "apollo-server-express": "^1.4.0",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "graphql": "^14.6.0",
+    "graphql-tools": "^4.0.7",
+    "request-promise-native": "^1.0.8"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
