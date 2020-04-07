@@ -9,6 +9,8 @@ const cors = require('cors')
 var app = express()
 
 app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 const typeDefs = `
   type Query {
@@ -89,6 +91,16 @@ app.get('/posts', async function (req, res, next) {
 app.get('/posts/:id', async function (req, res, next) {
     let response = await axios.get(wpURI + '/posts/' + req.params.id)
     return res.send(cleanStringify(response.data))
+})
+
+app.post('/auth', async function (req, res, next) {
+    let response = await axios.post('https://github.com/login/oauth/access_token', {
+        client_id: req.body.githubClientId,
+        client_secret: req.body.githubClientSecret,
+        code: req.body.sessionCode,
+        accept: 'application/json'
+    })
+    return res.send(cleanStringify(response))
 })
 
 app.listen(process.env.PORT || 4000)
