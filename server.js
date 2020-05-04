@@ -98,7 +98,8 @@ app.post('/auth', async function (req, res, next) {
         client_id: req.body.githubClientId,
         client_secret: req.body.githubClientSecret,
         code: req.body.sessionCode,
-        accept: 'application/json'
+        accept: 'application/json',
+        scope: req.body.scope
     })
     return res.send(cleanStringify(response))
 })
